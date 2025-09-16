@@ -1,0 +1,599 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  color: white;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-buttons button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.nav-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.nav-buttons button.active {
+  background-color: white;
+  color: #8B4513;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Customer Interface */
+.customer-interface .interface-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.order-form,
+.queue-status,
+.customer-orders {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.order-form h2,
+.queue-status h2,
+.customer-orders h2 {
+  color: #8B4513;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #8B4513;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.item-button {
+  padding: 0.8rem 0.5rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.item-button:hover {
+  border-color: #8B4513;
+  transform: translateY(-2px);
+}
+
+.item-button.selected {
+  background-color: #8B4513;
+  color: white;
+  border-color: #8B4513;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Queue Status */
+.status-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.status-item {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #8B4513;
+}
+
+.queue-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.queue-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.queue-item .position {
+  font-weight: bold;
+  color: #8B4513;
+  min-width: 3rem;
+}
+
+.queue-item .name {
+  font-weight: 600;
+  min-width: 8rem;
+}
+
+.queue-item .items {
+  flex: 1;
+  color: #666;
+}
+
+.priority {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-regular {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.priority-vip {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.priority-mobile_order {
+  background-color: #e8f5e8;
+  color: #388e3c;
+}
+
+/* Customer Orders */
+.customer-order {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #8B4513;
+}
+
+.status-queued {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.status-preparing {
+  color: #2196f3;
+  font-weight: 600;
+}
+
+.status-completed {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.status-cancelled {
+  color: #f44336;
+  font-weight: 600;
+}
+
+/* Staff Interface */
+.staff-interface .staff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.current-order-section,
+.queue-overview,
+.analytics-section,
+.preparing-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.current-order-section h2,
+.queue-overview h2,
+.analytics-section h2 {
+  color: #8B4513;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Current Order */
+.current-order {
+  background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 2px solid #8B4513;
+}
+
+.order-details h3 {
+  font-size: 2rem;
+  color: #8B4513;
+  margin-bottom: 1rem;
+}
+
+.order-details div {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.order-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.complete-button,
+.cancel-button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.complete-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.complete-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #da190b;
+  transform: translateY(-2px);
+}
+
+.no-current-order {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.next-order-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.next-order-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.next-order-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Queue Stats */
+.queue-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #8B4513;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Analytics */
+.analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.analytics-item {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.analytics-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #8B4513;
+  margin-bottom: 0.5rem;
+}
+
+.analytics-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.priority-breakdown {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.priority-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.priority-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-count {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.recent-completions {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.completed-order {
+  padding: 0.8rem;
+  background: #e8f5e8;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Cancel buttons */
+.cancel-small {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.cancel-small:hover {
+  opacity: 1;
+}
+
+.complete-button-small {
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.complete-button-small:hover {
+  background-color: #45a049;
+}
+
+/* Footer */
+.app-footer {
+  background-color: #8B4513;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.more-orders {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+
+  .customer-interface .interface-grid,
+  .staff-interface .staff-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .customer-interface .interface-grid,
+  .staff-interface .staff-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .queue-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .priority-breakdown {
+    flex-direction: column;
+  }
+
+  .order-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem;
+  }
+
+  .order-form,
+  .queue-status,
+  .customer-orders,
+  .current-order-section,
+  .queue-overview,
+  .analytics-section {
+    padding: 1.5rem;
+  }
+
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  to {
+    transform: rotate(360deg);
+  }
+}
